@@ -97,9 +97,10 @@ hotkey: frozenset = frozenset({Key.ctrl_l, Key.shift, keyboard.KeyCode.from_char
 
 ### Audio Settings
 ```python
-rate: int = 16000          # Sample rate
-channels: int = 1          # Mono audio
-chunk_size: int = 4096     # Audio buffer size
+rate: int = 16000                    # Sample rate
+channels: int = 1                    # Mono audio  
+chunk_duration_ms: float = 256.0     # Audio chunk duration in milliseconds
+# chunk_size is calculated automatically: int(rate * chunk_duration_ms / 1000)
 ```
 
 ### Timing Settings

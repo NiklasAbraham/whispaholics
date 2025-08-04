@@ -17,7 +17,12 @@ class Config:
     # Audio settings
     channels: int = 1
     rate: int = 16000
-    chunk_size: int = 4096
+    chunk_duration_ms: float = 1000.0  # Duration of each audio chunk in milliseconds
+    
+    @property
+    def chunk_size(self) -> int:
+        """Calculate chunk size in samples from duration in milliseconds"""
+        return int(self.rate * self.chunk_duration_ms / 1000)
     
     # Hotkey configuration - Choose one of the following:
     
